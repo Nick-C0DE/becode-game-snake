@@ -1,2 +1,2 @@
-# BECODE-GAME-JAM\
-https://thibruys.github.io/BECODE-GAME-JAM/index.html
+# BECODE-GAME-SNAKE
+https://raileanualexandru.github.io/becode-game-snake/
