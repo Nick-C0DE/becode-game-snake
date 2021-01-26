@@ -7,6 +7,7 @@ const dim = 20;
 let move = new Audio();
 let eat = new Audio();
 let dead = new Audio();
+let score = 0;
 
 move.src = "sounds/move.mp3";
 eat.src = "sounds/eat.mp3";
@@ -49,6 +50,8 @@ function drawSnake() {
   // if the snake eats the food
   if (snakeX == apple.x && snakeY == apple.y) {
     eat.play();
+    score+=5;
+    document.getElementById("displayScore").innerHTML = score;
 
     apple = {
       x: appleRandom(),
@@ -68,7 +71,7 @@ function drawSnake() {
   }
 
   // detected side walls
-  if (snakeX < 0 || snakeX > canvas.width - dim || snakeY < 0 || snakeY > canvas.height - dim) {
+  if (snakeX < 0 || snakeX > canvas.width - dim || snakeY < 0 || snakeY > canvas.height - dim || collision(newHead, snake)) {
 
 
     clearInterval(game);
@@ -81,9 +84,12 @@ function drawSnake() {
     ctx.fillRect(100, 50, 400, 200);
     ctx.fillStyle = "white";
     ctx.font = "70px Changa one";
-    ctx.fillText("you lose", 200, 150);
+    ctx.fillText("YOU LOST!", 120, 150);
+    ctx.font = "50px Changa one";
+    ctx.fillText(score + ' points', 235, 200);
+    ctx.fillStyle = "black";
     ctx.font = "30px Changa one";
-    ctx.fillText("press F2 to restart the game", 140, 200);
+    ctx.fillText("press F2 to restart the game", 140, 300);
   }
   // snake growing 
   snake.unshift(newHead);
@@ -138,7 +144,15 @@ function updateGame() {
   return update(), drawApple();
 }
 //update every 100 microseconds;
-let game = setInterval(updateGame, 200);
+let vitesse = 200;
+if(score >= 10 ){
+  vitesse = 50;
+}
+
+// }else if(score == 60){
+//   vitesse -= 50; 
+// }
+let game = setInterval(updateGame, vitesse);
 
 
 //restart the game
@@ -149,5 +163,19 @@ function restart(event) {
     location.reload();
   }
 }
+
+// function collision() quand le snake se touche alors game over
+
+function collision(snake_head, snake_body){
+  for(let i = 0; i < snake_body.length; i++){
+    if(snake_head.x == snake_body[i].x && snake_head.y == snake_body[i].y ){
+      return true;
+    }
+  }
+  return false;
+};
+
+
+
 
 
