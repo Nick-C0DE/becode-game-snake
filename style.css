@@ -1,0 +1,54 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+body {
+  background-color: #98fa98;
+  display: inline-flex;
+  font-family: 'B612', sans-serif;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: auto 3em;
+}
+h1 {
+  margin: auto;
+  font-size: 150px;
+  color: rgb(247, 23, 90);
+  -webkit-text-stroke: black 1px;
+}
+
+#snake-img {
+  width: 65%;
+  align-self: flex-start;
+  margin: auto;
+}
+
+#canvas {
+  
+  border-radius: 5px;
+  background-color: yellow;
+}
+.score{
+  display:flex;
+  flex-direction: column;
+  margin-left: 20px;
+  
+ 
+  
+}
+.info{
+  color: white;
+  display: flex;
+  align-items: center;
+  border-bottom: 5px solid red;
+  width: 600px;
+  height: 50px;
+  background-color: rgb(98, 124, 102);
+}
+.snake{
+  display: flex;
+  flex-direction: column;
+}

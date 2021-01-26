@@ -1,0 +1,105 @@
+function game(onload) {
+
+    function start(click StartButton) {
+      function startButtonDisappear () { startButton.hide },
+      function snakeAppear () { the snake appears },
+      function appleAppear () { puts an apple randomly on the playGround end },
+      function musicStart () { music starts },
+      setInterval (durationGame, 1000)
+    }
+
+
+    function durationGame (pos_snake, side) {
+        if ( button pause != true || status != lost || status != win) {
+          getPosition(),
+          snakeTurn(side),
+          getStatus(pos_snake_start, pos_snake_end),
+          timer()
+        } 
+      }
+
+    function getPosition() { return pos_snake_start, pos_snake_end } 
+
+
+    function snakeTurn (side) {
+      if (side = right) {
+        function turnRight () { snake turns to the right end }
+
+      } else if (side = left) {
+          function turnLeft () { snake turns to the left end }
+
+        } else if (side = top) {
+            function turnTop () { snake turns to the top end }
+
+          } else if (side = bottom) {
+              function turnBottom () { snake turns to the bottom end }
+
+            } else {
+              function snakeMoveForward () { snake will keep moving forward }
+            }
+    }
+
+
+    function listenArrow (click-on-arrow) {}
+          if(arrow = right) {
+            side = right
+            } else if (arrow = left) {
+              side = left
+              } else if (arrow = top) {
+                side = top
+                } else if (arrow = bottom) {
+                  side = bottom
+                } else {
+                  side = forward
+                }
+    })
+
+
+
+    function getStatus(pos_snake_start, pos_snake_end) {
+
+      if (pos_snake_end - pos_snake_start  = x) {
+        status = win
+
+      } else if (pos_snake_start = pos border) {
+          status = lost
+
+        } else if (pos_snake_start = pos apple) {
+            function snakeGrow { adds a tail element to snake }
+            function appleDisappear () { }
+            function appleAppear ()
+
+          } else if (pos_snake_start = pos snake_end) {
+              status = lost
+            }
+      return status
+    }
+
+    function timer () { }      
+
+
+    function checkStatus(status) {
+
+      if(status = win) {
+        function gameWin()
+        } else if (status = lost) {
+            function gameOver()
+
+    }
+
+    function gameOver () {
+      function snakeDisappear () { },
+      function playGroundDisappear () { }
+      function musicEnd () { music starts },
+
+      function displayScoreTable () {}
+      function startButtonAppear () { startButton.display }
+    }
+
+    function gameWin { display score and display "you survived"}
+        function startButtonAppear () { startButton.display }
+
+        function snakeDisappear () { },
+        function playGroundDisappear () { }
+        function musicEnd () { music starts },
+}
