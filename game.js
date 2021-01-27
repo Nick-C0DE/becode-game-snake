@@ -8,7 +8,6 @@ let move = new Audio();
 let eat = new Audio();
 let dead = new Audio();
 let score = 0;
-
 move.src = "sounds/move.mp3";
 eat.src = "sounds/eat.mp3";
 dead.src = "sounds/dead.mp3";
@@ -77,9 +76,6 @@ function drawSnake() {
     clearInterval(game);
     dead.play();
 
-    // alert("game over!")   //here we need to replace alert with function gameover
-    //document.getElementById("displayScore").innerHTML = "you lose!"
-
     ctx.fillStyle = "red";
     ctx.fillRect(100, 50, 400, 200);
     ctx.fillStyle = "white";
@@ -143,16 +139,11 @@ function update() {
 function updateGame() {
   return update(), drawApple();
 }
-//update every 100 microseconds;
-let vitesse = 200;
-if(score >= 10 ){
-  vitesse = 50;
-}
 
-// }else if(score == 60){
-//   vitesse -= 50; 
-// }
-let game = setInterval(updateGame, vitesse);
+
+//update every n microseconds;
+
+let game = setInterval(updateGame, 200);
 
 
 //restart the game
