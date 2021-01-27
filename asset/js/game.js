@@ -1,6 +1,22 @@
+document.getElementById('mode').addEventListener('change', ()=>{
+  let mode = document.getElementById('mode');
+  let test;
+for(let i = 0 ; i < mode.options.length ; i++){
+ 
+  if( mode[i].selected ){
+    test =  parseInt(mode[i].value);
+  }
+}
+
+console.log(typeof(test));
+
 // declare context
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+
+
+// addEventListener("select", addActivityItem, false); 
+// console.log(mode);
 
 //declare constants and variables
 const dim = 20;
@@ -9,8 +25,7 @@ let eat = new Audio();
 let dead = new Audio();
 
 let score = 0;
-
-let vitesse = 1000;
+let vitesse = 2000;
 
 move.src = "asset/sounds/move.mp3";
 eat.src = "asset/sounds/eat.mp3";
@@ -32,7 +47,7 @@ let snake = [];
   function drawSnake() {
 
     for (let i = 0; i < snake.length; i++) {
-      ctx.fillStyle = (i == 0) ? "ForestGreen" : "SeaGreen";
+      ctx.fillStyle = (i == 0) ? "ForestGreen" : "red";
       ctx.fillRect(snake[i].x, snake[i].y, dim, dim);
 
       ctx.strokeStyle = (i == 0) ? "red" : "black";
@@ -53,7 +68,7 @@ let snake = [];
     // if the snake eats the food
     if (snakeX == apple.x && snakeY == apple.y) {
       eat.play();
-      score+=5;
+      score+=10;
       document.getElementById("displayScore").innerHTML = score;
 
       apple = {
@@ -93,7 +108,7 @@ let snake = [];
         ctx.fillStyle = "black";
         ctx.font = "30px Changa one";
         ctx.fillText("press F2 to restart the game", 140, 300);
-        clearTimeout(game);
+        clearTimeout(game);//
       }
       // snake growing 
       snake.unshift(newHead);
@@ -142,21 +157,50 @@ document.addEventListener("keydown", direction);
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      if(score <= 5 ){
-        vitesse = 500;
-      }else if(score>=10 && score <=30){
-        vitesse = 250;
-      }else if(score>=30 && score <=60){
-        vitesse = 200;
-      }
-      console.log(vitesse);
+      // if( score <= 50 ){
+      //   vitesse = 300;
+      // }else if( score <= 70 ){
+      //   vitesse = 150;
+      // }else if( score <= 100 ){
+      //   vitesse = 50;
+      // }else{
+      //   vitesse = 10;
+      // }
+      // console.log(vitesse);
 
-      drawSnake();
+      drawSnake();//
 
-    }
+      // blitz
+  // if( test = 500 && score <= 50 ){
+  //           vitesse = 500;
+  //       }else if( score <= 70 ){
+  //         vitesse = 400;
+  //         }else if( score <= 100 ){
+  //          vitesse = 200;
+  //           }else{
+  //             vitesse = 100;
+  //           }
+  //     if( test = 300 && score <= 50 ){
+  //           vitesse = 300;
+  //         }else if( score <= 70 ){
+  //             vitesse = 150;
+  //           }else if( score <= 100 ){
+  //               vitesse = 50;
+  //             }else{
+  //                 vitesse = 10;
+  //     }if( test = 200 && score <= 50 ){
+  //            vitesse = 200;
+  //          }else if( score <= 70 ){
+  //               vitesse = 100;
+  //             }else if( score <= 100 ){
+  //                 vitesse = 50;
+  //               }else{
+  //                 vitesse = 10;
+  //               }
+  }
 
     function updateGame() {
-      setTimeout(update, vitesse);//1000 divided by score
+      setTimeout(update, test);//1000 divided by score
       
     }
 
@@ -169,7 +213,7 @@ document.addEventListener("keydown", direction);
     
     updateGame();
 
-//updategame()
+
 
     //restart the game
     document.addEventListener("keydown", restart);
@@ -191,7 +235,7 @@ document.addEventListener("keydown", direction);
     return false;
   };
 
+  //add a function pause()
 
-
-
-
+  //add a function highscore()
+});

@@ -15,12 +15,25 @@
     <h1>Snake</h1>
 
     <!-- Add image of snake -->
-    <img id="snake-img" src="asset/images/snake-img.png" alt="">
+    <img id="snake-img" src="asset/images/snake-img.png" alt="snake">
   </div>
   <div class="score">
     <div class="info">
       <h3>Score :&nbsp</h3>
       <h3 id="displayScore">0</h3>
+    <select name="" id="">
+      <option value="">Choose your mode</option>
+      <option value="">Classic</option>
+      <option value="">Blitz</option>
+    </select>
+
+      <select name="mode" id="mode">
+        <option selected>Choose your level</option>
+        <option value="500">EASY</option>
+        <option value="300">MEDIUM</option>
+        <option value="200">HARD</option>
+      </select>
+     
     </div>
     <canvas id="canvas" width="600px" height="600px"></canvas>
   </div>
