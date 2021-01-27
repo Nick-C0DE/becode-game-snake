@@ -12,9 +12,9 @@ let score = 0;
 
 let vitesse = 1000;
 
-move.src = "sounds/move.mp3";
-eat.src = "sounds/eat.mp3";
-dead.src = "sounds/dead.mp3";
+move.src = "asset/sounds/move.mp3";
+eat.src = "asset/sounds/eat.mp3";
+dead.src = "asset/sounds/dead.mp3";
 
 //create apple !!!changed
 let apple = {

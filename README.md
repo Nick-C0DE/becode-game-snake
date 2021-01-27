@@ -57,7 +57,7 @@ The purpose is **not** to make the game cross-browser compatible. Hacks and inco
 
 Screenshot
 -----------
-![image info](images/SnakeScreenshot.jpg)
+![image info](asset/images/SnakeScreenshot.jpg)
 
 Author and License
 -----------
