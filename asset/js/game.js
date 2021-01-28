@@ -1,4 +1,5 @@
-let speed = 0;
+let speed = 500;
+
 
 //choosing mode
 document.getElementById('modeGame').addEventListener('change', ()=>{
@@ -6,7 +7,28 @@ document.getElementById('modeGame').addEventListener('change', ()=>{
   for(let i = 0 ; i < modeGame.options.length ; i++){
     if( modeGame[i].selected){
       if(modeGame[i].value =="classic"){
+
+
+
+//POP UP MODAL
+        function togglePopup(){
+          document.getElementById("popup-1").classList.toggle("active");
+        }
+
+
+
+
         document.getElementById('modeDiv').style.display = 'inline';
+
+//alert
+        // let q = document.querySelectorAll('modeDiv').clicked;
+        //     if( q = true){
+        //       window.alert("choose your difficulty");
+              
+
+
+
+
         //testbegin
 //modes with buttons
 document.getElementById('easy').addEventListener('click', ()=>{ 
@@ -23,6 +45,9 @@ document.getElementById('hard').addEventListener('click', ()=>{
   document.getElementById('hard').style.backgroundColor = "#98fa98";
   speed = 50;
 });
+
+//alert
+// };
         //testend
 
       }else if (modeGame[i].value =="blitz"){
