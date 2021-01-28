@@ -1,22 +1,48 @@
-document.getElementById('mode').addEventListener('change', ()=>{
-  let mode = document.getElementById('mode');
-  let test;
-for(let i = 0 ; i < mode.options.length ; i++){
- 
-  if( mode[i].selected ){
-    test =  parseInt(mode[i].value);
-  }
-}
+let speed = 0;
 
-console.log(typeof(test));
+//choosing mode
+document.getElementById('modeGame').addEventListener('change', ()=>{
+  let modeGame = document.getElementById('modeGame');
+  for(let i = 0 ; i < modeGame.options.length ; i++){
+    if( modeGame[i].selected){
+      if(modeGame[i].value =="classic"){
+        document.getElementById('modeDiv').style.display = 'inline';
+        //testbegin
+//modes with buttons
+document.getElementById('easy').addEventListener('click', ()=>{ 
+  document.getElementById('easy').style.backgroundColor = "#98fa98";
+  speed = 300;
+});
+
+document.getElementById('medium').addEventListener('click', ()=>{ 
+  document.getElementById('medium').style.backgroundColor = "#98fa98";
+  speed = 200;
+});
+
+document.getElementById('hard').addEventListener('click', ()=>{ 
+  document.getElementById('hard').style.backgroundColor = "#98fa98";
+  speed = 50;
+});
+        //testend
+
+      }else if (modeGame[i].value =="blitz"){
+        document.getElementById('modeDiv').style.display = 'none';
+        
+        speed = vitesse;
+    
+      }
+    }
+  }
+});
+
+
+
+
 
 // declare context
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-
-// addEventListener("select", addActivityItem, false); 
-// console.log(mode);
 
 //declare constants and variables
 const dim = 20;
@@ -25,13 +51,13 @@ let eat = new Audio();
 let dead = new Audio();
 
 let score = 0;
-let vitesse = 2000;
+let vitesse = 500;
 
 move.src = "asset/sounds/move.mp3";
 eat.src = "asset/sounds/eat.mp3";
 dead.src = "asset/sounds/dead.mp3";
 
-//create apple !!!changed
+//create apple 
 let apple = {
   x: appleRandom(),
   y: appleRandom(),
@@ -63,7 +89,6 @@ let snake = [];
     if (d == "UP") snakeY -= dim;
     if (d == "RIGHT") snakeX += dim;
     if (d == "DOWN") snakeY += dim;
-
 
     // if the snake eats the food
     if (snakeX == apple.x && snakeY == apple.y) {
@@ -102,9 +127,9 @@ let snake = [];
         ctx.fillRect(100, 50, 400, 200);
         ctx.fillStyle = "white";
         ctx.font = "70px Changa one";
-        ctx.fillText("YOU LOST!", 120, 150);
+        ctx.fillText("Game Over!", 120, 150);
         ctx.font = "50px Changa one";
-        ctx.fillText(score + ' points', 235, 200);
+        ctx.fillText('You won ' + score + ' points', 115, 200);
         ctx.fillStyle = "black";
         ctx.font = "30px Changa one";
         ctx.fillText("press F2 to restart the game", 140, 300);
@@ -157,16 +182,16 @@ document.addEventListener("keydown", direction);
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // if( score <= 50 ){
-      //   vitesse = 300;
-      // }else if( score <= 70 ){
-      //   vitesse = 150;
-      // }else if( score <= 100 ){
-      //   vitesse = 50;
-      // }else{
-      //   vitesse = 10;
-      // }
-      // console.log(vitesse);
+      if( score <= 50 ){
+        vitesse = 300;
+      }else if( score > 50 && score <= 70 ){
+        vitesse = 150;
+      }else if( score >70 && score <= 100 ){
+        vitesse = 50;
+      }else{
+        vitesse = 10;
+      }
+       console.log("vitesse: " + vitesse);
 
       drawSnake();//
 
@@ -200,16 +225,11 @@ document.addEventListener("keydown", direction);
   }
 
     function updateGame() {
-      setTimeout(update, test);//1000 divided by score
+      setTimeout(update, speed);
       
     }
 
-
-
-    //update every 100 microseconds;
     
-    
-
     
     updateGame();
 
@@ -238,4 +258,3 @@ document.addEventListener("keydown", direction);
   //add a function pause()
 
   //add a function highscore()
-});
